@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ahmad Ansar is a cybersecurity student at Wentworth with hands-on experience in Linux, networking, documentation, and security labs.">
+  <meta name="theme-color" content="#08111f">
+  <meta property="og:title" content="Ahmad Ansar | Cybersecurity Student">
+  <meta property="og:description" content="Cybersecurity student at Wentworth, building a practical foundation in systems, networks, and security.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ahmad-ansar.github.io/">
+  <link rel="canonical" href="https://ahmad-ansar.github.io/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+  <title>Ahmad Ansar | Cybersecurity Student</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header" data-header>
+    <div class="shell nav-wrap">
+      <a class="brand" href="#top" aria-label="Ahmad Ansar, home">
+        <span class="brand-mark" aria-hidden="true">AA</span>
+        <span>Ahmad Ansar</span>
+      </a>
+
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button>
+        <span class="sr-only">Open navigation</span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Primary navigation" data-menu>
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#about">About</a>
+        <a href="#lab">Live lab</a>
+        <a class="nav-contact" href="mailto:ahmad@ahmadansar.com">Email me</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="shell hero-layout">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span class="status-dot"></span> Open to Greater Boston opportunities</p>
+          <h1 id="hero-title">I am learning security from the systems up.</h1>
+          <p class="hero-text">
+            I am Ahmad, a sophomore cybersecurity student at Wentworth. I have internship experience at State Street and hands-on work with Linux, networking, and small security labs. I am looking for an opportunity to keep learning and contribute to a real team.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#work">See my work</a>
+            <a class="button button-secondary" href="mailto:ahmad@ahmadansar.com">ahmad@ahmadansar.com</a>
+          </div>
+          <p class="role-note">Open to IT support, networking, security operations, internships, and co-ops.</p>
+        </div>
+
+        <aside class="snapshot reveal" aria-label="Student profile summary">
+          <div class="window-bar">
+            <div class="window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+            <span>profile.txt</span>
+          </div>
+          <dl class="snapshot-list">
+            <div>
+              <dt>school</dt>
+              <dd>Wentworth</dd>
+            </div>
+            <div>
+              <dt>degree</dt>
+              <dd>B.S. Cybersecurity</dd>
+            </div>
+            <div>
+              <dt>class</dt>
+              <dd>2029</dd>
+            </div>
+            <div>
+              <dt>location</dt>
+              <dd>Greater Boston</dd>
+            </div>
+            <div>
+              <dt>status</dt>
+              <dd class="available">ready to learn</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="proof-strip" aria-label="Highlights">
+      <div class="shell proof-grid">
+        <div>
+          <span class="proof-label">Experience</span>
+          <strong>State Street</strong>
+          <span>Cybersecurity intern</span>
+        </div>
+        <div>
+          <span class="proof-label">Competition</span>
+          <strong>2nd place</strong>
+          <span>SkillsUSA District Cybersecurity</span>
+        </div>
+        <div>
+          <span class="proof-label">Focus</span>
+          <strong>Systems and networks</strong>
+          <span>Linux, TCP/IP, Wireshark</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work" aria-labelledby="work-title">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <p class="section-kicker">Selected work</p>
+          <h2 id="work-title">Projects I can explain from start to finish.</h2>
+          <p>These are student projects and active lab work. The point is not to make them sound bigger than they are. The point is to show how I approach a problem, test it, and document what happened.</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card reveal">
+            <div class="project-topline">
+              <span class="project-number">01</span>
+              <span class="project-state">Course lab</span>
+            </div>
+            <h3>Isolated Traffic-Flood Lab</h3>
+            <p>Built a controlled two-VM lab in VirtualBox to see how a test service behaved under a traffic flood. Captured the traffic in Wireshark and measured the system impact with Linux tools.</p>
+            <ul class="detail-list">
+              <li>Kept the test inside an isolated Ubuntu lab</li>
+              <li>Compared baseline, peak, and recovery load averages</li>
+              <li>Wrote a mitigation summary covering rate limits, monitoring, filtering, and layered defenses</li>
+            </ul>
+            <div class="tag-row" aria-label="Tools used">
+              <span>Wireshark</span><span>Ubuntu</span><span>VirtualBox</span><span>TCP/IP</span>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-topline">
+              <span class="project-number">02</span>
+              <span class="project-state active">Active build</span>
+            </div>
+            <h3>Raspberry Pi Home Lab</h3>
+            <p>Use a Raspberry Pi 4 as a small Linux server for learning service management, patching, permissions, logs, and self-hosted tools without putting personal files on the box.</p>
+            <ul class="detail-list">
+              <li>Run Debian on a Raspberry Pi 4 with 128 GB of storage</li>
+              <li>Used the Pi for Pi-hole, local automation, and Linux administration</li>
+              <li>Rebuild cleanly when needed and keep the environment limited to lab work</li>
+            </ul>
+            <div class="tag-row" aria-label="Tools used">
+              <span>Linux</span><span>Raspberry Pi</span><span>DNS</span><span>CLI</span>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-topline">
+              <span class="project-number">03</span>
+              <span class="project-state">Team prototype</span>
+            </div>
+            <h3>Clinical Trial Matching Prototype</h3>
+            <p>Co-built a hackathon prototype that matched patient profiles to clinical-trial criteria. My focus was a clear demo flow, explainable eligibility rules, and the privacy questions that come with sensitive data.</p>
+            <ul class="detail-list">
+              <li>Turned eligibility criteria into an understandable matching flow</li>
+              <li>Helped shape and present the working team prototype</li>
+              <li>Discussed privacy and security limits instead of treating them as an afterthought</li>
+            </ul>
+            <div class="tag-row" aria-label="Project focus">
+              <span>Hackathon</span><span>Teamwork</span><span>Privacy</span><span>Prototyping</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="experience" aria-labelledby="experience-title">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <p class="section-kicker">Experience</p>
+          <h2 id="experience-title">Work that taught me how to support people and document systems.</h2>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-date">Nov 2024 - Feb 2025</div>
+            <div class="timeline-card">
+              <div class="timeline-heading">
+                <div>
+                  <h3>Cybersecurity Intern</h3>
+                  <p>State Street, Quincy, MA</p>
+                </div>
+                <span>Cybersecurity</span>
+              </div>
+              <ul class="detail-list">
+                <li>Shadowed cybersecurity teams across multiple functions and kept structured notes on their workflows</li>
+                <li>Created onboarding documentation and shared short research write-ups and slides</li>
+                <li>Delivered an end-of-internship presentation on what I learned and where I wanted to grow</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-date">Jun 2025 - Aug 2025</div>
+            <div class="timeline-card">
+              <div class="timeline-heading">
+                <div>
+                  <h3>Digital Operations and Social Media Intern</h3>
+                  <p>101 Art Studio, Quincy, MA</p>
+                </div>
+                <span>Operations</span>
+              </div>
+              <ul class="detail-list">
+                <li>Organized media from three staff phones into a structured archive</li>
+                <li>Backed up the archive to a 2 TB SSD and cloud storage</li>
+                <li>Created an SOP and trained staff on a repeatable archive and backup workflow</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-date">Oct 2024 - Apr 2025</div>
+            <div class="timeline-card">
+              <div class="timeline-heading">
+                <div>
+                  <h3>Volunteer Instructor and Web Support</h3>
+                  <p>Quincy Coders, Quincy, MA</p>
+                </div>
+                <span>Community</span>
+              </div>
+              <ul class="detail-list">
+                <li>Helped K-8 students debug Scratch projects during weekly sessions</li>
+                <li>Gave one-on-one guidance without taking over the work</li>
+                <li>Worked with volunteers on small GitHub-based website updates and tested changes before publishing</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="shell about-layout">
+        <div class="section-heading reveal">
+          <p class="section-kicker">About me</p>
+          <h2 id="about-title">Early in my career, serious about the foundation.</h2>
+          <p>I learn fast, but I do not pretend to know what I have not learned yet. I ask questions, write down what matters, and stay with a problem until I can explain it clearly. Right now, I am building the range needed for an entry-level IT or cybersecurity role.</p>
+          <p>At Wentworth, I am pursuing a B.S. in Cybersecurity with an expected graduation year of 2029. My coursework includes programming fundamentals, networks, security principles, and discrete mathematics.</p>
+        </div>
+
+        <div class="about-panels">
+          <article class="info-panel reveal">
+            <p class="panel-label">Current foundation</p>
+            <div class="skill-groups">
+              <div>
+                <h3>Security and networking</h3>
+                <p>TCP/IP, subnetting, Wireshark, Cisco Packet Tracer, incident documentation</p>
+              </div>
+              <div>
+                <h3>Systems and tools</h3>
+                <p>Linux CLI, Ubuntu, VirtualBox, Raspberry Pi, Git and GitHub</p>
+              </div>
+              <div>
+                <h3>Programming</h3>
+                <p>Python, Bash, Java, and JavaScript at a student and project level</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="info-panel focus-panel reveal">
+            <p class="panel-label">What I am working toward</p>
+            <h3>Certifications with a purpose</h3>
+            <p>I am completing the Google Cybersecurity Professional Certificate while continuing practical Linux and networking labs.</p>
+            <div class="progress-line" aria-hidden="true"><span></span></div>
+            <small>In progress. Nothing here is listed as completed before it is earned.</small>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-lab" id="lab" aria-labelledby="lab-title">
+      <div class="shell lab-layout">
+        <div class="lab-copy reveal">
+          <p class="section-kicker">Live lab</p>
+          <h2 id="lab-title">Password strength estimator</h2>
+          <p>This small demo runs entirely in your browser. It checks length, character range, common patterns, and an estimated search space. It does not send the password to a server.</p>
+          <div class="privacy-note">
+            <span aria-hidden="true">✓</span>
+            <p><strong>Use a sample, not a real password.</strong> Estimates are educational and depend on the attack model.</p>
+          </div>
+        </div>
+
+        <div class="analyzer reveal" data-analyzer>
+          <div class="analyzer-bar">
+            <span>local-password-check.js</span>
+            <span class="local-badge"><span></span> local only</span>
+          </div>
+          <div class="analyzer-body">
+            <label for="password-input">Sample password</label>
+            <div class="password-row">
+              <input id="password-input" type="password" autocomplete="new-password" spellcheck="false" maxlength="128" placeholder="Try a sample password" data-password-input>
+              <button type="button" class="text-button" aria-pressed="false" data-password-toggle>Show</button>
+            </div>
+            <div class="analyzer-actions">
+              <button type="button" class="button button-small button-primary" data-generate>Generate a sample</button>
+              <button type="button" class="button button-small button-quiet" data-clear>Clear</button>
+            </div>
+
+            <div class="strength-track" aria-hidden="true"><span data-strength-bar></span></div>
+            <div class="strength-heading" aria-live="polite">
+              <strong data-strength-label>Waiting for a sample</strong>
+              <span data-score>Score: --</span>
+            </div>
+
+            <dl class="metric-grid">
+              <div><dt>Length</dt><dd data-length>--</dd></div>
+              <div><dt>Entropy estimate</dt><dd data-entropy>--</dd></div>
+              <div><dt>Offline resistance</dt><dd data-crack-time>--</dd></div>
+            </dl>
+
+            <ul class="feedback" data-feedback aria-live="polite">
+              <li>Enter a sample to see the estimate.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="shell contact-card reveal">
+        <div>
+          <p class="section-kicker">Contact</p>
+          <h2 id="contact-title">I am ready for a first long-term role in tech.</h2>
+          <p>If your team needs someone who learns quickly, communicates clearly, and respects the basics, I would like to talk. I am staying in Greater Boston and I am open to a wide range of entry-level technical work.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="button button-primary" href="mailto:ahmad@ahmadansar.com">Email Ahmad</a>
+          <a class="button button-secondary" href="https://linkedin.com/in/ahmadansar" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="button button-secondary" href="https://github.com/ahmad-ansar" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-wrap">
+      <p>Ahmad Ansar <span aria-hidden="true">•</span> Greater Boston <span aria-hidden="true">•</span> Class of 2029</p>
+      <p>Plain HTML, CSS, and JavaScript. No analytics or trackers.</p>
+    </div>
+  </footer>
+</body>
+</html>
