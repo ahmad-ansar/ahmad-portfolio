@@ -19,7 +19,7 @@
   --radius-lg: 22px;
   --radius-md: 14px;
   --radius-sm: 9px;
-  --shell: 1140px;
+  --shell: 1200px;
 }
 
 *,
@@ -40,7 +40,7 @@ body {
   color: var(--ink);
   font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 16px;
-  line-height: 1.65;
+  line-height: 1.6;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
@@ -94,16 +94,16 @@ h3 {
 }
 
 h1 {
-  max-width: 790px;
-  margin-bottom: 24px;
-  font-size: clamp(3rem, 5.8vw, 5.4rem);
+  max-width: 760px;
+  margin-bottom: 20px;
+  font-size: clamp(2.8rem, 5vw, 4.7rem);
   font-weight: 740;
 }
 
 h2 {
   max-width: 790px;
-  margin-bottom: 20px;
-  font-size: clamp(2.25rem, 4.6vw, 4.25rem);
+  margin-bottom: 18px;
+  font-size: clamp(2rem, 3.8vw, 3.55rem);
   font-weight: 700;
 }
 
@@ -153,6 +153,7 @@ h3 {
   z-index: 100;
   border-bottom: 1px solid transparent;
   background: rgb(8 17 31 / 70%);
+  -webkit-backdrop-filter: blur(18px);
   backdrop-filter: blur(18px);
   transition: border-color 180ms ease, background 180ms ease;
 }
@@ -164,7 +165,7 @@ h3 {
 
 .nav-wrap {
   display: flex;
-  min-height: 72px;
+  min-height: 68px;
   align-items: center;
   justify-content: space-between;
   gap: 28px;
@@ -256,10 +257,10 @@ h3 {
 .hero {
   position: relative;
   display: grid;
-  min-height: 810px;
+  min-height: 720px;
   overflow: hidden;
   align-items: center;
-  padding: 150px 0 88px;
+  padding: 132px 0 72px;
 }
 
 .hero::after {
@@ -286,13 +287,14 @@ h3 {
     linear-gradient(rgb(104 169 255 / 4%) 1px, transparent 1px),
     linear-gradient(90deg, rgb(104 169 255 / 4%) 1px, transparent 1px);
   background-size: 54px 54px;
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent 80%);
   mask-image: linear-gradient(to bottom, black, transparent 80%);
 }
 
 .hero-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.6fr) minmax(300px, 0.7fr);
-  gap: clamp(56px, 8vw, 112px);
+  gap: clamp(48px, 7vw, 88px);
   align-items: center;
 }
 
@@ -328,7 +330,7 @@ h3 {
   max-width: 700px;
   margin-bottom: 30px;
   color: var(--ink-soft);
-  font-size: clamp(1.06rem, 1.6vw, 1.25rem);
+  font-size: clamp(1rem, 1.3vw, 1.16rem);
 }
 
 .hero-actions,
@@ -501,7 +503,7 @@ h3 {
 
 .proof-grid > div {
   display: flex;
-  min-height: 128px;
+  min-height: 112px;
   flex-direction: column;
   justify-content: center;
   padding: 24px 34px;
@@ -538,7 +540,7 @@ h3 {
 }
 
 .section {
-  padding: 130px 0;
+  padding: 104px 0;
 }
 
 .section-muted {
@@ -548,7 +550,7 @@ h3 {
 
 .section-heading {
   max-width: 820px;
-  margin-bottom: 58px;
+  margin-bottom: 46px;
 }
 
 .section-heading > p:not(.section-kicker) {
@@ -570,9 +572,9 @@ h3 {
 .project-card {
   position: relative;
   display: flex;
-  min-height: 510px;
+  min-height: 460px;
   flex-direction: column;
-  padding: 30px;
+  padding: 28px;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
@@ -602,7 +604,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 64px;
+  margin-bottom: 42px;
 }
 
 .project-number {
@@ -760,7 +762,7 @@ h3 {
 }
 
 .timeline-card {
-  padding: 28px 30px;
+  padding: 26px 28px;
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
   background: var(--surface-soft);
@@ -815,7 +817,7 @@ h3 {
 }
 
 .info-panel {
-  padding: 30px;
+  padding: 26px;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   background: var(--surface-soft);
@@ -938,7 +940,7 @@ h3 {
 }
 
 .analyzer-body {
-  padding: 30px;
+  padding: 26px;
 }
 
 .analyzer label {
@@ -966,7 +968,7 @@ h3 {
   background: var(--page-deep);
   color: var(--ink);
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  font-size: 0.87rem;
+  font-size: 1rem;
 }
 
 .password-row input::placeholder {
@@ -1116,7 +1118,7 @@ h3 {
 }
 
 .contact-section {
-  padding: 120px 0;
+  padding: 96px 0;
 }
 
 .contact-card {
@@ -1125,7 +1127,7 @@ h3 {
   grid-template-columns: 1fr auto;
   gap: 50px;
   align-items: end;
-  padding: clamp(32px, 6vw, 64px);
+  padding: clamp(30px, 5vw, 52px);
   overflow: hidden;
   border: 1px solid var(--line-bright);
   border-radius: 28px;
@@ -1152,7 +1154,7 @@ h3 {
 
 .contact-card h2 {
   max-width: 720px;
-  font-size: clamp(2.2rem, 4.2vw, 3.8rem);
+  font-size: clamp(2rem, 3.4vw, 3.2rem);
 }
 
 .contact-card p:not(.section-kicker) {
@@ -1344,11 +1346,11 @@ h3 {
   }
 
   .hero {
-    padding: 130px 0 72px;
+    padding: 112px 0 60px;
   }
 
   h1 {
-    font-size: clamp(2.7rem, 14vw, 4.2rem);
+    font-size: clamp(2.3rem, 11.2vw, 3.45rem);
   }
 
   .proof-grid {
@@ -1369,11 +1371,11 @@ h3 {
   }
 
   .section {
-    padding: 94px 0;
+    padding: 76px 0;
   }
 
   .section-heading {
-    margin-bottom: 40px;
+    margin-bottom: 32px;
   }
 
   .project-grid,
@@ -1387,7 +1389,7 @@ h3 {
   }
 
   .project-topline {
-    margin-bottom: 44px;
+    margin-bottom: 30px;
   }
 
   .timeline::before {
@@ -1428,7 +1430,7 @@ h3 {
   }
 
   .contact-section {
-    padding: 92px 0;
+    padding: 76px 0;
   }
 
   .footer-wrap {
