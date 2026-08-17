@@ -1,7 +1,5 @@
 "use strict";
 
-document.documentElement.classList.add("js");
-
 const header = document.querySelector("[data-header]");
 const menuButton = document.querySelector("[data-menu-button]");
 const menu = document.querySelector("[data-menu]");
@@ -35,18 +33,32 @@ updateHeader();
 
 const revealItems = document.querySelectorAll(".reveal");
 
-if ("IntersectionObserver" in window) {
-  const revealObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add("visible");
-      observer.unobserve(entry.target);
-    });
-  }, { threshold: 0.12, rootMargin: "0px 0px -35px" });
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  revealItems.forEach((item) => revealObserver.observe(item));
-} else {
-  revealItems.forEach((item) => item.classList.add("visible"));
+if (revealItems.length && "IntersectionObserver" in window && !reducedMotion) {
+  try {
+    const initialRevealItems = Array.from(revealItems).filter((item) => {
+      const bounds = item.getBoundingClientRect();
+      return bounds.top < window.innerHeight + 35 && bounds.bottom > -35;
+    });
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -35px" });
+
+    if (initialRevealItems.length) {
+      initialRevealItems.forEach((item) => item.classList.add("reveal-pending"));
+      document.documentElement.classList.add("reveal-enabled");
+      initialRevealItems.forEach((item) => revealObserver.observe(item));
+    }
+  } catch {
+    revealItems.forEach((item) => item.classList.remove("reveal-pending"));
+    document.documentElement.classList.remove("reveal-enabled");
+  }
 }
 
 const analyzer = document.querySelector("[data-analyzer]");
@@ -73,13 +85,16 @@ if (analyzer) {
     "changeme", "computer", "internet", "starwars", "minecraft", "pokemon"
   ]);
 
-  const colors = {
-    "Very weak": "#ff7b72",
-    "Weak": "#f2a65a",
-    "Fair": "#f0c66f",
-    "Strong": "#62d98b",
-    "Very strong": "#52d6c5"
+  const toneClasses = {
+    "Very weak": "tone-very-weak",
+    "Weak": "tone-weak",
+    "Fair": "tone-fair",
+    "Strong": "tone-strong",
+    "Very strong": "tone-very-strong"
   };
+
+  const strengthClasses = Array.from({ length: 21 }, (_, index) => `strength-${index * 5}`);
+  const allToneClasses = Object.values(toneClasses);
 
   const predictableSequences = [
     "0123", "1234", "2345", "3456", "4567", "5678", "6789",
@@ -203,11 +218,17 @@ if (analyzer) {
     });
   }
 
+  function setStrengthVisual(score, label) {
+    const bucket = clamp(Math.ceil(score / 5) * 5, 0, 100);
+    strengthBar.classList.remove(...strengthClasses, ...allToneClasses);
+    strengthBar.classList.add(`strength-${bucket}`, toneClasses[label]);
+    strengthLabel.classList.remove(...allToneClasses);
+    if (score > 0) strengthLabel.classList.add(toneClasses[label]);
+  }
+
   function resetAnalyzer() {
-    strengthBar.style.width = "0%";
-    strengthBar.style.background = colors["Very weak"];
+    setStrengthVisual(0, "Very weak");
     strengthLabel.textContent = "Waiting for a sample";
-    strengthLabel.style.color = "";
     scoreOutput.textContent = "Score: --";
     lengthOutput.textContent = "--";
     entropyOutput.textContent = "--";
@@ -223,12 +244,8 @@ if (analyzer) {
     }
 
     const result = analyzePassword(value);
-    const color = colors[result.label];
-
-    strengthBar.style.width = `${result.score}%`;
-    strengthBar.style.background = color;
+    setStrengthVisual(result.score, result.label);
     strengthLabel.textContent = result.label;
-    strengthLabel.style.color = color;
     scoreOutput.textContent = `Score: ${result.score}/100`;
     lengthOutput.textContent = String(value.length);
     entropyOutput.textContent = `${result.rawEntropy.toFixed(1)} bits`;
