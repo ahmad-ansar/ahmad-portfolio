@@ -805,8 +805,7 @@ h3 {
 }
 
 .about-layout .section-heading {
-  position: sticky;
-  top: 120px;
+  position: static;
   margin-bottom: 0;
 }
 
