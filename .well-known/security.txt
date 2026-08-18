@@ -1,0 +1,4 @@
+Contact: mailto:ahmad@ahmadansar.me
+Expires: 2027-08-01T00:00:00Z
+Preferred-Languages: en
+Canonical: https://ahmadansar.me/.well-known/security.txt

@@ -3,21 +3,26 @@
 const header = document.querySelector("[data-header]");
 const menuButton = document.querySelector("[data-menu-button]");
 const menu = document.querySelector("[data-menu]");
+const menuLabel = document.querySelector("[data-menu-label]");
 
 function updateHeader() {
   header?.classList.toggle("scrolled", window.scrollY > 12);
 }
 
-function closeMenu() {
+function setMenuState(isOpen) {
   if (!menuButton || !menu) return;
-  menuButton.setAttribute("aria-expanded", "false");
-  menu.classList.remove("open");
+  menuButton.setAttribute("aria-expanded", String(isOpen));
+  menu.classList.toggle("open", isOpen);
+  if (menuLabel) menuLabel.textContent = isOpen ? "Close navigation" : "Open navigation";
+}
+
+function closeMenu() {
+  setMenuState(false);
 }
 
 menuButton?.addEventListener("click", () => {
   const isOpen = menuButton.getAttribute("aria-expanded") === "true";
-  menuButton.setAttribute("aria-expanded", String(!isOpen));
-  menu?.classList.toggle("open", !isOpen);
+  setMenuState(!isOpen);
 });
 
 menu?.querySelectorAll("a").forEach((link) => {
@@ -28,6 +33,22 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") closeMenu();
 });
 
+document.addEventListener("click", (event) => {
+  if (!header || !menuButton || menuButton.getAttribute("aria-expanded") !== "true") return;
+  if (event.target instanceof Node && !header.contains(event.target)) closeMenu();
+});
+
+const desktopNavigation = window.matchMedia("(min-width: 821px)");
+const handleNavigationWidth = (event) => {
+  if (event.matches) closeMenu();
+};
+
+if (typeof desktopNavigation.addEventListener === "function") {
+  desktopNavigation.addEventListener("change", handleNavigationWidth);
+} else {
+  desktopNavigation.addListener(handleNavigationWidth);
+}
+
 window.addEventListener("scroll", updateHeader, { passive: true });
 updateHeader();
 
@@ -37,11 +58,6 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matc
 
 if (revealItems.length && "IntersectionObserver" in window && !reducedMotion) {
   try {
-    const initialRevealItems = Array.from(revealItems).filter((item) => {
-      const bounds = item.getBoundingClientRect();
-      return bounds.top < window.innerHeight + 35 && bounds.bottom > -35;
-    });
-
     const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
@@ -50,11 +66,9 @@ if (revealItems.length && "IntersectionObserver" in window && !reducedMotion) {
       });
     }, { threshold: 0.12, rootMargin: "0px 0px -35px" });
 
-    if (initialRevealItems.length) {
-      initialRevealItems.forEach((item) => item.classList.add("reveal-pending"));
-      document.documentElement.classList.add("reveal-enabled");
-      initialRevealItems.forEach((item) => revealObserver.observe(item));
-    }
+    revealItems.forEach((item) => item.classList.add("reveal-pending"));
+    document.documentElement.classList.add("reveal-enabled");
+    revealItems.forEach((item) => revealObserver.observe(item));
   } catch {
     revealItems.forEach((item) => item.classList.remove("reveal-pending"));
     document.documentElement.classList.remove("reveal-enabled");
@@ -321,6 +335,14 @@ if (analyzer) {
     toggle.setAttribute("aria-pressed", "false");
     resetAnalyzer();
     input.focus();
+  });
+
+  window.addEventListener("pagehide", () => {
+    input.value = "";
+    input.type = "password";
+    toggle.textContent = "Show";
+    toggle.setAttribute("aria-pressed", "false");
+    resetAnalyzer();
   });
 
   resetAnalyzer();
