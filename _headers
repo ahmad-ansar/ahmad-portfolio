@@ -1,8 +1,6 @@
 /*
-  Cache-Control: public, max-age=0, must-revalidate, no-transform
   Content-Security-Policy: default-src 'self'; script-src 'self'; script-src-attr 'none'; style-src 'self'; style-src-attr 'none'; img-src 'self' data:; font-src 'none'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests
   Cross-Origin-Opener-Policy: same-origin
-  Cross-Origin-Resource-Policy: same-origin
   Origin-Agent-Cluster: ?1
   Permissions-Policy: accelerometer=(), autoplay=(), camera=(), display-capture=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), publickey-credentials-get=(), usb=()
   Referrer-Policy: strict-origin-when-cross-origin
@@ -13,22 +11,8 @@
   X-Permitted-Cross-Domain-Policies: none
 
 /.well-known/security.txt
-  Cache-Control: public, max-age=86400, must-revalidate, no-transform
   Content-Type: text/plain; charset=utf-8
   X-Robots-Tag: noindex, nofollow
 
 /og-image.png
-  Cache-Control: public, max-age=604800, must-revalidate
   Cross-Origin-Resource-Policy: cross-origin
-
-/*.css
-  Cache-Control: public, max-age=3600, must-revalidate
-
-/*.js
-  Cache-Control: public, max-age=3600, must-revalidate
-
-/*.svg
-  Cache-Control: public, max-age=86400, must-revalidate
-
-/*.pdf
-  Cache-Control: public, max-age=3600, must-revalidate
