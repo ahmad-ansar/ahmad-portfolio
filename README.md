@@ -13,5 +13,5 @@ The site uses plain HTML, CSS, and JavaScript with no framework or build depende
 - Cloudflare Pages applies the security policy in `_headers`, including a restrictive Content Security Policy, frame protection, referrer controls, and a limited Permissions Policy.
 - The password estimator has no network request, storage, logging, or analytics code.
 - The site uses no external fonts, contact form, advertising script, or third-party tracker.
-- The public résumé excludes Ahmad's phone number and private address information.
+- The public résumé excludes my phone number and private address information.
 - Security contact information is available at [`/.well-known/security.txt`](https://ahmadansar.me/.well-known/security.txt).
